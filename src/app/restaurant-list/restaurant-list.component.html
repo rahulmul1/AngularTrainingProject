@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-md-3">
+    <h3>Filter Restaurants</h3>
+    <form>
+        <h3>Cuisine</h3>
+        <div fm-checkbox-list>
+           <!-- CUISINE LABELS and CHECKBOXES -->
+           <p *ngFor="let cuisine of cuisines">
+            <input type="checkbox" 
+            name="cuisine" 
+            (click) ="selectRestaurants(cuisine)"
+            [checked]="cuisine.selected" value="{{cuisine.name}}" />
+            {{cuisine.name}} 
+             {{cuisine | json}}
+           </p>
+        </div>
+    </form>
+  </div>
+  
+  <div class="col-md-9 fm-restaurant-list">
+      <div class="well">
+         <!-- RESTAURANTS pluralize -->
+         <span i18n>{restaurants, plural, =0 {no restaurants} =1 {one restaurant found}  =2 {two restaurants found} other {many restaurants found} }</span>
+      </div>
+      <table class="table table-hover table-striped">
+          <tr>
+            <th><a>Name</a></th>
+            <th><a>Price</a></th>
+            <th><a>Rating</a></th>
+          </tr>
+          <!-- LIST RESTAURANTS -->
+          <tr *ngFor="let restaurant of restaurants"> 
+            <td>
+              <img src="assets/img/restaurants/{{restaurant.name}}.jpg" />
+              {{restaurant.description}}
+            </td>
+            <td>
+              <app-star-rating [max]="5" [rating]="restaurant.price"></app-star-rating>
+            </td>
+            <td>
+              <app-star-rating [max]="5" [rating]="restaurant.rating"></app-star-rating>
+            </td>
+          </tr>
+      </table>
+   </div>
+</div>

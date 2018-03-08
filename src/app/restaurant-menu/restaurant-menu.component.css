@@ -1,0 +1,83 @@
+
+.fm-menu-list li {
+    list-style-type: none;
+  }
+  
+  .fm-menu-list li span {
+    padding-right: 20px;
+  }
+  
+  .fm-menu-list a {
+    color: inherit;
+  }
+  
+  .fm-menu-list a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .fm-menu-list .icon-plus-sign {
+    visibility: hidden;
+  }
+  
+  .fm-menu-list li:hover .icon-plus-sign {
+    visibility: visible;
+  }
+  
+  .fm-menu-list li:hover {
+    color: black;
+  }
+  
+  .fm-menu-list ul li {
+    text-align: center;
+  }
+  
+  .fm-cart li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .fm-cart .icon-remove-sign {
+    visibility: hidden;
+  }
+  
+  .fm-cart li:hover .icon-remove-sign {
+    visibility: visible;
+  }
+  
+  .fm-cart form {
+    padding-left: 2px;
+  }
+  
+  .fm-cart p {
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+  
+  
+  /* checkout */
+  
+  .fm-checkout table {
+    width: 960px;
+    margin-left: -10px;
+  }
+  
+  .fm-checkout table th:nth-child(2),
+  .fm-checkout table td:nth-child(2) {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .fm-checkout table td:nth-child(1) input {
+    width: 30px;
+  }
+  
+  .fm-checkout table th,
+  .fm-checkout table td {
+    text-align: right;
+  }
+  
+  .fm-checkout table tr:last-child th {
+    text-align: right;
+  }

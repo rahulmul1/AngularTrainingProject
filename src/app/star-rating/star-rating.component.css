@@ -1,0 +1,23 @@
+.rating {
+    unicode-bidi: bidi-override;
+    text-align: start;
+    display: inline-block;
+    direction: rtl;
+  }
+  
+  .star {
+    color: gold;
+  }
+  
+  .rating>span {
+    display: inline-block;
+    position: relative;
+    width: 0.9em;
+    font-size: 30px;
+  }
+  
+  .rating:hover {
+    cursor: pointer;
+  }
+  
+   
