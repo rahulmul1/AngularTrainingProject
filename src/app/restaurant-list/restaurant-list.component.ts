@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../common/data.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantListComponent implements OnInit {
 
-  constructor() { }
+  originalRestaurants:any[] = [];
+  restaurants:any[] = [];
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
-    this.originalRestaurants = this.restaurants;
+    this.dataService.getRestaurants().subscribe(data=>{this.originalRestaurants = this.restaurants = data});
+    
   }
 
   selectRestaurants(cuisine:Cuisine) {
@@ -36,6 +40,7 @@ export class RestaurantListComponent implements OnInit {
     {"name":"Veg","value":"Veg","selected":false},
   ];
 
+  /**
   originalRestaurants:any[];
   restaurants:any[] = [
     {
@@ -78,6 +83,7 @@ export class RestaurantListComponent implements OnInit {
         "price": 3
     }
   ];
+  **/
 }
 
 interface Cuisine{

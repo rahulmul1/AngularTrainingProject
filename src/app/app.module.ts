@@ -12,6 +12,8 @@ import { Child } from './simple/child';
 import { Parent } from './simple/parent';
 import { AuthService } from './common/auth.service';
 import { Obs } from './simple/obs';
+import {HttpModule} from '@angular/http';
+import { DataService } from './common/data.service';
 
 const routes:Routes=[
 {path:'',component:HomeComponent},
@@ -33,9 +35,9 @@ const routes:Routes=[
     Obs
   ],
   imports: [
-    BrowserModule,RouterModule,FormsModule,RouterModule.forRoot(routes)
+    BrowserModule,RouterModule,FormsModule,RouterModule.forRoot(routes),HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
