@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../common/data.service';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -7,12 +8,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./restaurant-menu.component.css']
 })
 export class RestaurantMenuComponent implements OnInit {
-
-  restaurant:any;
+  restaurant:any= {};
+  //menuItems:any = {};
+  
   items:any[] = [];
   cart:any[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,private dataService:DataService) { }
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get("id");
@@ -21,11 +23,15 @@ export class RestaurantMenuComponent implements OnInit {
   }
 
   getRestaurant(id:number) {
-    this.restaurant = this.restaurants.filter(r => r.id == id)[0];
+    //this.restaurant = this.restaurants.filter(r => r.id == id)[0];
+    this.dataService.getRestaurant(id).subscribe(data=>{this.restaurant= data});
+    
   }
 
   getMenuItems(id:number) {
     this.items = this.menuItems.filter(m => m.id == id).map(m => m.menu)[0];
+    //this.dataService.getMenuItems(id).subscribe(data=>{this.menuItems= data});
+   
   }
 
   addToCart(id:number,item:any){
@@ -33,6 +39,7 @@ export class RestaurantMenuComponent implements OnInit {
     this.cart.push(item);
   }
 
+  /** 
   restaurants:any[] =  [
     {
         "id": 1,
@@ -74,8 +81,9 @@ export class RestaurantMenuComponent implements OnInit {
         "price": 3
     }
 ];
+*/
 
-  
+
 menuItems = [
   {
     "id":1,
@@ -98,5 +106,6 @@ menuItems = [
   }
 
 ];
+
 
 }
